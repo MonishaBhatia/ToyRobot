@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/edt_x_cords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:backgroundTint="@color/bg_stroke_color"
+        android:hint="@string/text_x"
+        android:inputType="number"
+        android:textColor="@color/text_color_primary"
+        android:textColorHint="@color/text_color_secondary"
+        android:textSize="@dimen/sp_16"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/edt_y_cords"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_y_cords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:backgroundTint="@color/bg_stroke_color"
+        android:hint="@string/text_y"
+        android:inputType="number"
+        android:textColor="@color/text_color_primary"
+        android:textColorHint="@color/text_color_secondary"
+        android:textSize="@dimen/sp_16"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@id/edt_x_cords"
+        app:layout_constraintRight_toLeftOf="@id/edt_face"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:backgroundTint="@color/bg_stroke_color"
+        android:hint="@string/text_f"
+        android:textColor="@color/text_color_primary"
+        android:textColorHint="@color/text_color_secondary"
+        android:textSize="@dimen/sp_16"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@id/edt_y_cords"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btn_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_16"
+        android:background="@color/bg_stroke_color"
+        android:text="@string/place"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_x_cords" />
+
+    <Button
+        android:id="@+id/btn_move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/bg_stroke_color"
+        android:text="@string/move"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_left"
+        app:layout_constraintTop_toBottomOf="@id/btn_place"
+
+        />
+
+    <Button
+        android:id="@+id/btn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/bg_stroke_color"
+        android:text="@string/left"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@id/btn_move"
+        app:layout_constraintRight_toLeftOf="@id/btn_right"
+        app:layout_constraintTop_toBottomOf="@id/btn_place" />
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/bg_stroke_color"
+        android:text="@string/right"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@id/btn_left"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_place" />
+
+    <Button
+        android:id="@+id/btn_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_16"
+        android:background="@color/bg_stroke_color"
+        android:text="@string/report"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_move" />
+
+    <TextView
+        android:id="@+id/tv_report"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:layout_margin="@dimen/dp_16"
+        android:gravity="center"
+        android:textColor="@color/text_color_primary"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_report"
+        tools:text="0,1,North" />
+
+</android.support.constraint.ConstraintLayout>

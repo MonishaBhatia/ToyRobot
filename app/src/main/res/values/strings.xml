@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ToyRobot</string>
+
+    <string name="text_x">X Co-ord</string>
+    <string name="text_y">Y Co-ord</string>
+    <string name="text_f">Direction</string>
+    <string name="place">PLACE</string>
+    <string name="move">MOVE</string>
+    <string name="left">LEFT</string>
+    <string name="right">RIGHT</string>
+    <string name="report">REPORT</string>
+    <string name="cord_error">Enter co-ordinates between 0 To 5</string>
+    <string name="fall_error">Alert! Robot will fall off</string>
+    <string name="dir_error">Allowed: North, South, East, West</string>
 </resources>
