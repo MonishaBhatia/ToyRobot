@@ -69,7 +69,7 @@ public class ToyRobotActivity extends AppCompatActivity implements ToyRobotView 
 
     @OnClick(R.id.btn_left)
     public void onClickLeft() {
-        toyRobotPresenter.turnLeft(xCord, yCord, face);
+        toyRobotPresenter.turnLeft(face);
         tvReport.setText(EMPTY);
     }
 
@@ -118,17 +118,11 @@ public class ToyRobotActivity extends AppCompatActivity implements ToyRobotView 
     public void setNewCords(int xCord, int yCord) {
         this.xCord = xCord;
         this.yCord = yCord;
-        showNewCords();
-    }
-
-    private void showNewCords() {
-        Toast.makeText(this, xCord + "," + yCord + "," + face, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void setNewface(String face) {
         this.face = face;
-        showNewCords();
     }
 
     private boolean validateFields() {

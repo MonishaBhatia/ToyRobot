@@ -37,7 +37,7 @@ public class ToyRobotPresenterTest {
     public void testCaseOne() throws Exception {
 
 
-        presenter.turnLeft(0, 0, "North");
+        presenter.turnLeft("North");
     }
 
     @Test
