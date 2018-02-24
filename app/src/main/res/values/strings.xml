@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ToyRobot</string>
+
+    <string name="text_x">X Co-ord</string>
+    <string name="text_y">Y Co-ord</string>
+    <string name="text_f">Direction</string>
+    <string name="place">PLACE</string>
+    <string name="move">MOVE</string>
+    <string name="left">LEFT</string>
+    <string name="right">RIGHT</string>
+    <string name="report">REPORT</string>
 </resources>
