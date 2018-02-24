@@ -5,4 +5,8 @@ package com.example.monishabhatia.toyrobot;
  */
 
 public interface ToyRobotView {
+
+    void showErrorMessage(int msg);
+    void setNewCords(int xCord, int yCord);
+    void setNewface(String face);
 }

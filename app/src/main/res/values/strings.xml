@@ -9,4 +9,7 @@
     <string name="left">LEFT</string>
     <string name="right">RIGHT</string>
     <string name="report">REPORT</string>
+    <string name="cord_error">Enter co-ordinates between 0 To 5</string>
+    <string name="fall_error">Alert! Robot will fall off</string>
+    <string name="dir_error">Allowed: North, South, East, West</string>
 </resources>
