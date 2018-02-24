@@ -1,9 +1,7 @@
 package com.example.monishabhatia.toyrobot;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,46 +49,64 @@ public class ToyRobotActivity extends AppCompatActivity implements ToyRobotView 
     }
 
     @OnClick(R.id.btn_place)
-    public void onClickPlace(){
+    public void onClickPlace() {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         tvReport.setText(EMPTY);
 
-        if(edtXCords.getText().toString().isEmpty()){
-            edtXCords.setText("0");
-        }
-
-        if(edtYCords.getText().toString().isEmpty()){
-            edtYCords.setText("0");
-        }
-
-        if(validateFields()){
-            xCord = Integer.parseInt(edtXCords.getText().toString());
-            yCord = Integer.parseInt(edtYCords.getText().toString());
-            face = edtFace.getText().toString();
+        if (validateFields()) {
+            xCord = getXCords();
+            yCord = getyCords();
+            face = getDirection();
         }
     }
 
     @OnClick(R.id.btn_move)
-    public void onClickMove(){
+    public void onClickMove() {
         toyRobotPresenter.movetoy(xCord, yCord, face);
         tvReport.setText(EMPTY);
     }
 
     @OnClick(R.id.btn_left)
-    public void onClickLeft(){
+    public void onClickLeft() {
         toyRobotPresenter.turnLeft(xCord, yCord, face);
         tvReport.setText(EMPTY);
     }
 
     @OnClick(R.id.btn_right)
-    public void onClickRight(){
+    public void onClickRight() {
         toyRobotPresenter.turnRight(face);
+        tvReport.setText(EMPTY);
     }
 
     @OnClick(R.id.btn_report)
-    public void onClickReport(){
-        tvReport.setText(xCord  + "," + yCord + "," + face);
+    public void onClickReport() {
+        tvReport.setText(xCord + "," + yCord + "," + face);
+    }
+
+    @Override
+    public int getXCords() {
+        if (edtXCords.getText().toString().isEmpty()) {
+            edtXCords.setText("0");
+            return 0;
+        } else {
+            return Integer.parseInt(edtXCords.getText().toString());
+        }
+    }
+
+    @Override
+    public int getyCords() {
+        if (edtYCords.getText().toString().isEmpty()) {
+            edtYCords.setText("0");
+            return 0;
+        } else {
+            return Integer.parseInt(edtYCords.getText().toString());
+        }
+    }
+
+    @Override
+    public String getDirection() {
+        return edtFace.getText().toString();
     }
 
     @Override
@@ -105,8 +121,8 @@ public class ToyRobotActivity extends AppCompatActivity implements ToyRobotView 
         showNewCords();
     }
 
-    private void showNewCords(){
-        Toast.makeText(this, xCord  + "," + yCord + "," + face , Toast.LENGTH_LONG).show();
+    private void showNewCords() {
+        Toast.makeText(this, xCord + "," + yCord + "," + face, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -115,18 +131,18 @@ public class ToyRobotActivity extends AppCompatActivity implements ToyRobotView 
         showNewCords();
     }
 
-    private boolean validateFields(){
+    private boolean validateFields() {
 
-        if(!toyRobotPresenter.validateXY(Integer.parseInt(edtXCords.getText().toString()))){
+        if (!toyRobotPresenter.validateXY(getXCords())) {
             showErrorMessage(R.string.cord_error);
             return false;
         }
-        if(!toyRobotPresenter.validateXY(Integer.parseInt(edtYCords.getText().toString()))){
+        if (!toyRobotPresenter.validateXY(getyCords())) {
             showErrorMessage(R.string.cord_error);
             return false;
         }
 
-        if(!toyRobotPresenter.vlaidateDir(edtFace.getText().toString())){
+        if (!toyRobotPresenter.validateDir(edtFace.getText().toString())) {
             showErrorMessage(R.string.dir_error);
             return false;
         }

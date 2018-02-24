@@ -1,6 +1,5 @@
 package com.example.monishabhatia.toyrobot;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -19,40 +18,40 @@ public class ToyRobotPresenter {
     private static final int EAST = 2;
     private static final int WEST = 3;
 
-    public ToyRobotPresenter(ToyRobotView view){
+    public ToyRobotPresenter(ToyRobotView view) {
         this.view = view;
     }
 
-    public boolean validateXY(int cord){
+    public boolean validateXY(int cord) {
 
-        if(cord >= 0 && cord <= 5) {
+        if (cord >= 0 && cord <= 5) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean vlaidateDir(String dir){
-        if(dir != null && dir.isEmpty() && !Arrays.asList(direction).contains(dir.toLowerCase())){
+    public boolean validateDir(String dir) {
+        if (dir != null && dir.isEmpty() && !Arrays.asList(direction).contains(dir.toLowerCase())) {
             return false;
-        }else {
+        } else {
             return true;
         }
     }
 
     public void movetoy(int xCord, int yCord, String face) {
 
-        if(face.equals(direction[NORTH]) || face.equals(direction[SOUTH])){
-            if(validateXY(yCord +1)){
+        if (face.equals(direction[NORTH]) || face.equals(direction[SOUTH])) {
+            if (validateXY(yCord + 1)) {
                 yCord += 1;
-            }else{
+            } else {
                 view.showErrorMessage(R.string.fall_error);
                 return;
             }
-        }else{
-            if(validateXY(xCord +1)){
+        } else {
+            if (validateXY(xCord + 1)) {
                 xCord += 1;
-            }else{
+            } else {
                 view.showErrorMessage(R.string.fall_error);
                 return;
             }
@@ -62,13 +61,13 @@ public class ToyRobotPresenter {
 
     public void turnLeft(int xCord, int yCord, String face) {
 
-        if(direction[NORTH].equals(face)){
+        if (direction[NORTH].equals(face)) {
             face = direction[WEST];
-        }else if(direction[SOUTH].equals(face)){
+        } else if (direction[SOUTH].equals(face)) {
             face = direction[EAST];
-        }else if(direction[EAST].equals(face)){
+        } else if (direction[EAST].equals(face)) {
             face = direction[NORTH];
-        }else {
+        } else {
             face = direction[SOUTH];
         }
         view.setNewface(face);
@@ -76,13 +75,13 @@ public class ToyRobotPresenter {
 
     public void turnRight(String face) {
 
-        if(direction[NORTH].equals(face)){
+        if (direction[NORTH].equals(face)) {
             face = direction[EAST];
-        }else if(direction[SOUTH].equals(face)){
+        } else if (direction[SOUTH].equals(face)) {
             face = direction[WEST];
-        }else if(direction[EAST].equals(face)){
+        } else if (direction[EAST].equals(face)) {
             face = direction[SOUTH];
-        }else {
+        } else {
             face = direction[NORTH];
         }
         view.setNewface(face);
